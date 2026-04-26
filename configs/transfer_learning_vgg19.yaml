@@ -1,0 +1,18 @@
+model:
+  name: vgg19
+  num_classes: 37  # количество классов
+  input_size: [3, 256, 256]
+  batch_size: 64
+  seed: 42
+  freeze_backbone: true  # заморозить признаки, обучать только классификатор
+  lr: 0.00005
+  optimizer: adam
+  weight_decay: 0.001
+  device: 'cuda'
+  num_workers: 4
+  epochs: 30
+  loss: cross_entropy
+  output_dir: "./data/models/exp_vgg19_transfer"
+
+resume: "./data/models/exp_vgg19_transfer/last_checkpoint.pth"
+data_config: "./configs/data.yaml"
